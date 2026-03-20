@@ -15,7 +15,7 @@ A Claude / Claude Code skill for formatting raw content (Markdown, plain text, o
 
 ### What This Does
 
-This skill handles all the tedious formatting requirements of a Tsinghua thesis so you can focus on writing content. It works in conjunction with the `docx` skill to generate production-ready `.docx` files.
+This skill handles all the tedious formatting requirements of a Tsinghua thesis so you can focus on writing content. It works in conjunction with the [`docx` skill](https://github.com/anthropics/skills/tree/main/skills/docx) to generate production-ready `.docx` files.
 
 #### Key Features
 
@@ -28,7 +28,7 @@ This skill handles all the tedious formatting requirements of a Tsinghua thesis 
 
 ### Dependencies
 
-This skill requires the `docx` skill to be installed alongside it. The `docx` skill provides the underlying DOCX generation and validation toolchain.
+This skill requires the [`docx` skill](https://github.com/anthropics/skills/tree/main/skills/docx) to be installed alongside it. The `docx` skill provides the underlying DOCX generation and validation toolchain.
 
 ### Installation
 
@@ -36,8 +36,9 @@ This skill requires the `docx` skill to be installed alongside it. The `docx` sk
 # 1. Clone this repo into your Claude Code skills directory
 git clone https://github.com/humblebanana/thu-thesis-formatter.git ~/.claude/skills/thesis-formatter
 
-# 2. Install the docx skill (required dependency)
-# Place the docx skill at ~/.claude/skills/docx
+# 2. Install the official docx skill (required dependency)
+git clone https://github.com/anthropics/skills.git /tmp/anthropic-skills
+cp -r /tmp/anthropic-skills/skills/docx ~/.claude/skills/docx
 
 # 3. Install the runtime dependency
 npm install -g docx
@@ -62,7 +63,7 @@ Trigger the skill by asking your AI agent:
 
 ### 功能介绍
 
-这个 Skill 可以帮你处理所有繁琐的排版工作，让你能够专注于论文内容的撰写。它与 `docx` skill 协同工作，生成可直接打印或提交的 Word 文档。
+这个 Skill 可以帮你处理所有繁琐的排版工作，让你能够专注于论文内容的撰写。它与 [`docx` skill](https://github.com/anthropics/skills/tree/main/skills/docx) 协同工作，生成可直接打印或提交的 Word 文档。
 
 #### 核心特性
 
@@ -75,7 +76,7 @@ Trigger the skill by asking your AI agent:
 
 ### 依赖说明
 
-本 Skill 需要与 `docx` skill 配合使用，`docx` skill 提供底层的 DOCX 生成与验证工具链，需单独安装。
+本 Skill 需要与 [`docx` skill](https://github.com/anthropics/skills/tree/main/skills/docx) 配合使用，`docx` skill 提供底层的 DOCX 生成与验证工具链。
 
 ### 安装方法
 
@@ -83,8 +84,9 @@ Trigger the skill by asking your AI agent:
 # 1. Clone 本仓库到 Claude Code 的 skills 目录
 git clone https://github.com/humblebanana/thu-thesis-formatter.git ~/.claude/skills/thesis-formatter
 
-# 2. 安装 docx skill（必需依赖）
-# 将 docx skill 放置于 ~/.claude/skills/docx
+# 2. 安装官方 docx skill（必需依赖）
+git clone https://github.com/anthropics/skills.git /tmp/anthropic-skills
+cp -r /tmp/anthropic-skills/skills/docx ~/.claude/skills/docx
 
 # 3. 安装运行时依赖
 npm install -g docx
