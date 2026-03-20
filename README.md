@@ -15,7 +15,7 @@ A Claude / Claude Code skill for formatting raw content (Markdown, plain text, o
 
 ### What This Does
 
-This skill handles all the tedious formatting requirements of a Tsinghua thesis so you can focus on writing content. It works in conjunction with the [`docx` skill](https://github.com/YOUR_USERNAME/docx) to generate production-ready `.docx` files.
+This skill handles all the tedious formatting requirements of a Tsinghua thesis so you can focus on writing content. It works in conjunction with the `docx` skill to generate production-ready `.docx` files.
 
 #### Key Features
 
@@ -26,24 +26,18 @@ This skill handles all the tedious formatting requirements of a Tsinghua thesis 
 - **Three-line Tables** — Generates compliant three-line tables (三线表) with correct border weights.
 - **Content Preservation Guarantee** — The skill is a formatter only. It will never rewrite, rephrase, add, or remove any of your text. Every sentence you wrote appears word-for-word in the output. Missing sections are left as explicit placeholders (e.g. `【请在此处填写摘要】`) rather than being fabricated.
 
-### Architecture
+### Dependencies
 
-This skill uses a **two-skill integration pattern**: `thesis-formatter` provides the domain-specific formatting rules, while `docx` provides the underlying DOCX generation and validation toolchain.
-
-The `docx` skill must be installed alongside this skill. The agent reads `docx/SKILL.md` first to understand how to use `docx-js`, then applies the Tsinghua-specific rules from this skill.
+This skill requires the `docx` skill to be installed alongside it. The `docx` skill provides the underlying DOCX generation and validation toolchain.
 
 ### Installation
 
-The `docx` skill is **bundled** in this repository — no separate install needed.
-
 ```bash
-# 1. Clone this repo
-git clone https://github.com/humblebanana/thu-thesis-formatter.git
+# 1. Clone this repo into your Claude Code skills directory
+git clone https://github.com/humblebanana/thu-thesis-formatter.git ~/.claude/skills/thesis-formatter
 
-# 2. Copy both skills into your Claude Code skills directory
-mkdir -p ~/.claude/skills
-cp -r thu-thesis-formatter/. ~/.claude/skills/thesis-formatter/
-cp -r thu-thesis-formatter/docx ~/.claude/skills/docx
+# 2. Install the docx skill (required dependency)
+# Place the docx skill at ~/.claude/skills/docx
 
 # 3. Install the runtime dependency
 npm install -g docx
@@ -68,7 +62,7 @@ Trigger the skill by asking your AI agent:
 
 ### 功能介绍
 
-这个 Skill 可以帮你处理所有繁琐的排版工作，让你能够专注于论文内容的撰写。它与 [`docx` skill](https://github.com/YOUR_USERNAME/docx) 协同工作，生成可直接打印或提交的 Word 文档。
+这个 Skill 可以帮你处理所有繁琐的排版工作，让你能够专注于论文内容的撰写。它与 `docx` skill 协同工作，生成可直接打印或提交的 Word 文档。
 
 #### 核心特性
 
@@ -79,24 +73,18 @@ Trigger the skill by asking your AI agent:
 - **规范的三线表** — 自动生成符合学术规范的三线表，并应用正确的边框粗细。
 - **内容神圣原则（防篡改）** — 该 Skill 仅作为排版工具。它**绝对不会**重写、润色、添加或删除你的任何文字。你写的每一句话都会一字不差地保留。对于缺失的章节，它只会留下明确的占位符（如 `【请在此处填写摘要】`），而不会自行捏造内容。
 
-### 架构说明
+### 依赖说明
 
-本项目采用**双 Skill 协同模式**：`thesis-formatter` 提供清华专属的排版规则，而 `docx` 提供底层的 DOCX 生成与验证工具链。
-
-必须同时安装 `docx` skill。AI Agent 会先读取 `docx/SKILL.md` 掌握 `docx-js` 的用法，然后再应用本 Skill 中的清华排版规则。
+本 Skill 需要与 `docx` skill 配合使用，`docx` skill 提供底层的 DOCX 生成与验证工具链，需单独安装。
 
 ### 安装方法
 
-`docx` skill 已经打包在本仓库中，无需单独安装。
-
 ```bash
-# 1. Clone 本仓库
-git clone https://github.com/humblebanana/thu-thesis-formatter.git
+# 1. Clone 本仓库到 Claude Code 的 skills 目录
+git clone https://github.com/humblebanana/thu-thesis-formatter.git ~/.claude/skills/thesis-formatter
 
-# 2. 将两个 skill 复制到 Claude Code 的 skills 目录
-mkdir -p ~/.claude/skills
-cp -r thu-thesis-formatter/. ~/.claude/skills/thesis-formatter/
-cp -r thu-thesis-formatter/docx ~/.claude/skills/docx
+# 2. 安装 docx skill（必需依赖）
+# 将 docx skill 放置于 ~/.claude/skills/docx
 
 # 3. 安装运行时依赖
 npm install -g docx
