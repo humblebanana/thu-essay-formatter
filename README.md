@@ -7,7 +7,7 @@
 <a name="english"></a>
 ## English
 
-A Claude / Claude Code skill for formatting raw content (Markdown, plain text, or unformatted DOCX) into a **Tsinghua University (清华大学)** graduation thesis DOCX with pixel-perfect formatting.
+A skill for formatting raw content (Markdown, plain text, or unformatted DOCX) into a **Tsinghua University (清华大学)** graduation thesis DOCX with pixel-perfect formatting. Compatible with Claude Code, OpenClaw, Codex CLI, Cursor, Windsurf, Cline, and other AI coding tools that support custom skills or rules.
 
 > Based on the official Tsinghua University thesis formatting guidelines.
 
@@ -61,7 +61,7 @@ Trigger the skill by asking your AI agent:
 <a name="中文"></a>
 ## 中文
 
-这是一个专为 Claude / Claude Code 设计的 Skill，用于将未经排版的纯文本、Markdown 或 Word 文档，一键转换为完全符合**清华大学毕业论文**排版规范的 DOCX 文件。
+这是一个支持多种 AI 工具的 Skill，用于将未经排版的纯文本、Markdown 或 Word 文档，一键转换为完全符合**清华大学毕业论文**排版规范的 DOCX 文件。支持 Claude Code、OpenClaw、Codex CLI、Cursor、Windsurf、Cline 等支持自定义 skills 或规则的 AI 编程工具。
 
 > 基于清华大学官方综合论文训练写作规范。
 
